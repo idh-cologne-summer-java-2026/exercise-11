@@ -1,14 +1,14 @@
 Fortgeschrittene Programmierung (Java 2)
 
 
-# Übung 7
+# Übung 11
 
 
 Klonen Sie dieses Repository direkt in Eclipse und importieren Sie das Projekt. Legen Sie einen neuen Branch an, den Sie nach Ihrem GitHub-Benutzernamen benennen.
 
 ## Aufgabe 1
 
-Sie finden im Repository die Referenzlösung aus Aufgabe 4 als Startpunkt. Dabei handelt es sich um den Geldautomaten, der zu einer Bank gehört, und den Kontostand verschiedener Konten auseinander halten kann. Implementieren Sie in der Klasse `Bank` die Methode `getAccount(int)`, so dass sie den passenden Account für eine Kontonummer liefert. Intern -- innerhalb der Klasse `Bank` -- verwenden Sie dazu bitte eine `HashMap`.
+Sie finden im Repository die Referenzlösung aus einer vorherigen Aufgabe als Startpunkt. Dabei handelt es sich um den Geldautomaten, der zu einer Bank gehört, und den Kontostand verschiedener Konten auseinander halten kann. Implementieren Sie in der Klasse `Bank` die Methode `getAccount(int)`, so dass sie den passenden Account für eine Kontonummer liefert. Intern -- innerhalb der Klasse `Bank` -- verwenden Sie dazu bitte eine `HashMap`.
 
 
 ## Aufgabe 2
