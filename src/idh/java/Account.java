@@ -1,46 +1,32 @@
 package idh.java;
 
-
-/**
- * This class represents an account in our bank.
- * @author reiterns
- *
- */
 public class Account {
-	// the balance of the account
-	int balance;
-	
-	// the id of the account
-	int id;
+    int balance;
+    // id ist jetzt ein string wegen der neuen text-kontonummern
+    String id; 
 
-	public Account(int id, int status) {
-		this.id = id;
-		this.balance = status;
-	}
-	
-	public int getId() {
-		return id;
-	}
+    public Account(String id, int status) {
+        this.id = id;
+        this.balance = status;
+    }
+    
+    public String getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public int getBalance() {
-		return balance;
-	}
+    public int getBalance() {
+        return balance;
+    }
 
-	public void setBalance(int status) {
-		this.balance = status;
-	}
-	
-	/**
-	 * Withdraws a sum of money from the account
-	 * @param sum
-	 */
-	public void withdraw(int sum) {
-		this.balance = balance - sum;
-	}
-	
-	
+    public void setBalance(int status) {
+        this.balance = status;
+    }
+    
+    public void withdraw(int sum) {
+        this.balance = balance - sum;
+    }
 }
