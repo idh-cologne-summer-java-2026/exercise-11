@@ -22,25 +22,42 @@ public class Bank {
 			Account value = new Account(i, balance);
 			
 			String key;
-			if( i == 0) {
-				key = "123456";	// Konto zum Testen
-			}  else if(i == 1) {
-				key = "1234@5678";	
-			}  else if(i == 2) {
-				key = "cat_haz_cash";	
-			}  else if(i == 3) {
-				key = "💸";	
-			}  else if(i == 4) {
-				key = "🚀";	
-			}  else if(i == 5) {
-				key = "😀";	
-			} else {
-				key = Integer.toString(random.nextInt(10000000));
-				while(accounts.containsKey(key)) {	// Falls der key schon vorhanden ist
-					key = Integer.toString(random.nextInt(10000000)); 
-				}
-			}				
-
+			switch (i) {
+				case 0:
+					key = "123456";	// Konto zum Testen
+					break;
+				case 1:
+					key =  "1234@5678";
+					break;
+				case 2:
+					key = "cat_haz_cash";
+					break;
+				case 3:
+					key = "💸" ;	
+					break;
+				case 4:
+					key = "🚀";
+					break;
+				case 6:
+					key = "😀";	
+					break;
+				case 7:
+					key = "🍕";	
+					break;
+				case 8:
+					key = "🙈";	
+					break;
+				case 9:
+					key = "💜";	
+					break;
+				default:
+					key = Integer.toString(random.nextInt(10000000));
+					while(accounts.containsKey(key)) {	// Falls der key schon vorhanden ist
+						key = Integer.toString(random.nextInt(10000000)); 
+					};
+					break;
+			};
+			
 			accounts.put(key, value);
 		}
 	}

@@ -27,7 +27,6 @@ public class ATM  {
 				System.out.print("Enter your account number: ");
 				//int accountNumber = Integer.parseInt(br.readLine());
 				String accountNumber = br.readLine();
-				System.out.println("Your account number is: "+accountNumber);
 				System.out.print("Enter the amount to withdraw: ");
 				int amount = Integer.parseInt(br.readLine());
 				cashout(accountNumber, amount);
