@@ -7,7 +7,8 @@ import java.util.Random;
 
 public class Bank {
 	
-	Map<Integer, Account> accounts = new HashMap<>();
+	//	Map<Integer, Account> accounts = new HashMap<>();
+	Map<String, Account> accounts = new HashMap<>();
 	int numberOfAccounts = 1000;
 	
 	public Bank() {
@@ -20,13 +21,23 @@ public class Bank {
 			int balance = random.nextInt(1000);
 			Account value = new Account(i, balance);
 			
-			Integer key;
+			String key;
 			if( i == 0) {
-				key = 123456;	// Konto zum Testen
+				key = "123456";	// Konto zum Testen
+			}  else if(i == 1) {
+				key = "1234@5678";	
+			}  else if(i == 2) {
+				key = "cat_haz_cash";	
+			}  else if(i == 3) {
+				key = "💸";	
+			}  else if(i == 4) {
+				key = "🚀";	
+			}  else if(i == 5) {
+				key = "😀";	
 			} else {
-				key = random.nextInt(10000000);
+				key = Integer.toString(random.nextInt(10000000));
 				while(accounts.containsKey(key)) {	// Falls der key schon vorhanden ist
-					key = random.nextInt(10000000); 
+					key = Integer.toString(random.nextInt(10000000)); 
 				}
 			}				
 
@@ -34,7 +45,8 @@ public class Bank {
 		}
 	}
 	
-	public Account getAccount(int number) {
+	//public Account getAccount(int number) {
+	public Account getAccount(String number) {
 		return accounts.get(number);
 	}
 

@@ -25,7 +25,9 @@ public class ATM  {
 		while (true) {
 			try {
 				System.out.print("Enter your account number: ");
-				int accountNumber = Integer.parseInt(br.readLine());
+				//int accountNumber = Integer.parseInt(br.readLine());
+				String accountNumber = br.readLine();
+				System.out.println("Your account number is: "+accountNumber);
 				System.out.print("Enter the amount to withdraw: ");
 				int amount = Integer.parseInt(br.readLine());
 				cashout(accountNumber, amount);
@@ -36,7 +38,8 @@ public class ATM  {
 		}
 	}
 
-	public void cashout(int accountNumber, int amount) {
+	//public void cashout(int accountNumber, int amount) {
+	public void cashout(String accountNumber, int amount) {
 		// check for cash in the ATM
 		if (amount > cash) {
 			System.out.println("Sorry, not enough cash left.");
