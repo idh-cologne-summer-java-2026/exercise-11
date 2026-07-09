@@ -1,13 +1,12 @@
 package idh.java;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ATM  {
 	
 	// initial cash in the ATM
-	int cash = 100;
+	int cash = 250;
 
 	Bank bank;
 	
@@ -45,7 +44,7 @@ public class ATM  {
 		}
 		
 		// check for existence of the account
-		Account account = getAccount(accountNumber);
+		Account account = (Account) bank.getAccount(accountNumber);
 		if (account == null) {
 			System.out.println("Sorry, this account doesn't exist.");
 			return;
@@ -59,9 +58,8 @@ public class ATM  {
 		
 		// withdraw
 		account.withdraw(amount);
-		cash += amount;
+		cash -= amount;
 		System.out.println("Ok, here is your money, enjoy!");
-
 	};
 
 	/**
@@ -72,19 +70,5 @@ public class ATM  {
 		ATM atm = new ATM(bank);
 		atm.run();
 	};
-	
-	/**
-	 * Retrieves the account given an id.
-	 * 
-	 * @param id
-	 * @return
-	 */
-	protected Account getAccount(int id) {
-		for (Account account : bank) {
-			if (account.getId() == id) 
-				return account;
-		}
-		return null;
-	}
 
 }
