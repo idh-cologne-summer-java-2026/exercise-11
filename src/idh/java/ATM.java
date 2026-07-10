@@ -1,13 +1,12 @@
 package idh.java;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ATM  {
 	
-	// initial cash in the ATM
-	int cash = 100;
+	// initial cash in the ATM (Ich habe es auf 10000 erhöht, damit wir das 💸-Konto testen können!)
+	int cash = 10000;
 
 	Bank bank;
 	
@@ -16,31 +15,32 @@ public class ATM  {
 	}
 	
 	/**
-	 * Main command loop of the ATM Asks the user to enter a number, and passes this
-	 * number to the function cashout(...) which actually does the calculation and
-	 * produces money. If the user enters anything else than an integer number, the
-	 * loop breaks and the program exists
+	 * Main command loop of the ATM.
 	 */
 	public void run() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			try {
 				System.out.print("Enter your account number: ");
-				int accountNumber = Integer.parseInt(br.readLine());
+				// Aufgabe 2: Wir lesen die Kontonummer als String ein!
+				String accountNumber = br.readLine();
+				
 				System.out.print("Enter the amount to withdraw: ");
+				// Der Betrag bleibt eine Zahl
 				int amount = Integer.parseInt(br.readLine());
+				
 				cashout(accountNumber, amount);
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println("Invalid input. System shutting down.");
 				break;
 			}
 		}
 	}
 
-	public void cashout(int accountNumber, int amount) {
+	public void cashout(String accountNumber, int amount) {
 		// check for cash in the ATM
 		if (amount > cash) {
-			System.out.println("Sorry, not enough cash left.");
+			System.out.println("Sorry, not enough cash left in the ATM.");
 			return;
 		}
 		
@@ -59,10 +59,11 @@ public class ATM  {
 		
 		// withdraw
 		account.withdraw(amount);
-		cash += amount;
+		
+		// Bugfix: Der Geldautomat verliert Geld, er bekommt keins dazu ;)
+		cash -= amount; 
 		System.out.println("Ok, here is your money, enjoy!");
-
-	};
+	}
 
 	/**
 	 * Launches the ATM
@@ -71,20 +72,15 @@ public class ATM  {
 		Bank bank = new Bank();
 		ATM atm = new ATM(bank);
 		atm.run();
-	};
+	}
 	
 	/**
 	 * Retrieves the account given an id.
-	 * 
-	 * @param id
+	 * * @param id
 	 * @return
 	 */
-	protected Account getAccount(int id) {
-		for (Account account : bank) {
-			if (account.getId() == id) 
-				return account;
-		}
-		return null;
+	protected Account getAccount(String id) {
+		// Wir können jetzt ganz elegant die neue Methode der Bank nutzen!
+		return bank.getAccount(id);
 	}
-
 }

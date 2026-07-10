@@ -1,28 +1,25 @@
 package idh.java;
 
-
 /**
  * This class represents an account in our bank.
- * @author reiterns
- *
  */
 public class Account {
 	// the balance of the account
 	int balance;
 	
-	// the id of the account
-	int id;
+	// the id of the account (Jetzt als String für Aufgabe 2!)
+	String id;
 
-	public Account(int id, int status) {
+	public Account(String id, int status) {
 		this.id = id;
 		this.balance = status;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -41,6 +38,4 @@ public class Account {
 	public void withdraw(int sum) {
 		this.balance = balance - sum;
 	}
-	
-	
 }
