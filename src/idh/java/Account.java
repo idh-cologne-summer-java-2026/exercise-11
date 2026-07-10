@@ -6,23 +6,26 @@ package idh.java;
  * @author reiterns
  *
  */
+/* Note: Data type of account identifier changed from int to String
+ * throughout this class [Exercise 2]  
+ */
 public class Account {
 	// the balance of the account
 	int balance;
 	
-	// the id of the account
-	int id;
+	// the id of the account 
+	String id;
 
-	public Account(int id, int status) {
+	public Account(String id, int status) {
 		this.id = id;
 		this.balance = status;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
