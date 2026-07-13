@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class ATM  {
 	
 	// initial cash in the ATM
-	int cash = 100;
+	int cash = 1000;
 
 	Bank bank;
 	
@@ -26,8 +26,9 @@ public class ATM  {
 		while (true) {
 			try {
 				System.out.print("Enter your account number: ");
-				int accountNumber = Integer.parseInt(br.readLine());
-				System.out.print("Enter the amount to withdraw: ");
+				String accountNumber = br.readLine();
+				//verbesserte Augabe, gibt Acc Namen + balance aus nachdem die Kontonummer eingegeben wurde
+				System.out.print("Hello " +bank.getAccount(accountNumber).getId()+ ", you have: " + bank.getAccount(accountNumber).getBalance() +  "$ in the Bank. Enter the amount to withdraw: ");
 				int amount = Integer.parseInt(br.readLine());
 				cashout(accountNumber, amount);
 			} catch (Exception e) {
@@ -37,7 +38,7 @@ public class ATM  {
 		}
 	}
 
-	public void cashout(int accountNumber, int amount) {
+	public void cashout(String accountNumber, int amount) {
 		// check for cash in the ATM
 		if (amount > cash) {
 			System.out.println("Sorry, not enough cash left.");
@@ -69,6 +70,7 @@ public class ATM  {
 	 */
 	public static void main(String[] args) {
 		Bank bank = new Bank();
+		 
 		ATM atm = new ATM(bank);
 		atm.run();
 	};
@@ -76,15 +78,12 @@ public class ATM  {
 	/**
 	 * Retrieves the account given an id.
 	 * 
-	 * @param id
+	 * @param accountNumber
 	 * @return
 	 */
-	protected Account getAccount(int id) {
-		for (Account account : bank) {
-			if (account.getId() == id) 
-				return account;
-		}
-		return null;
+	protected Account getAccount(String accountNumber) {
+		 return bank.getAccount(accountNumber);
 	}
+	
 
 }
