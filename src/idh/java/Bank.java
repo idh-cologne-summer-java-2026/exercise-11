@@ -7,13 +7,20 @@ import java.util.Random;
 
 public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
-	HashMap<Integer, Account> map = new HashMap<Integer, Account>();
+	HashMap<String, Account> map = new HashMap<String, Account>();
 
 	public Bank() {
 		// create accounts with varying balances
 		Random random = new Random();
+
+		accounts[0] = new Account("1234@5678", random.nextInt(1000));
+        accounts[1] = new Account("cat_haz_cash", random.nextInt(1000));
+        accounts[2] = new Account("💸", random.nextInt(1000));
+       
+
+
 		for (int i = 0; i < accounts.length; i++) {
-			accounts[i] = new Account(i, random.nextInt(1000));
+			
 			 map.put(accounts[i].getId(), accounts[i]);
 		}
 	}
@@ -23,7 +30,7 @@ public class Bank implements Iterable<Account> {
 		return new AccountIterator(accounts);
 	}
 	
-	public Account getAccount(int number) {
+	public Account getAccount(String number) {
 		
 		return map.get(number);
 	}
