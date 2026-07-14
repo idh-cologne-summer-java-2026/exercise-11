@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class Bank implements Iterable<Account> {
-	Account[] accounts = new Account[5];
+	Account[] accounts = new Account[3];
 	HashMap<String, Account> map = new HashMap<String, Account>();
 
 	public Bank() {
