@@ -1,6 +1,5 @@
 package idh.java;
 
-
 /**
  * This class represents an account in our bank.
  * @author reiterns
@@ -8,21 +7,21 @@ package idh.java;
  */
 public class Account {
 	// the balance of the account
-	int balance;
+	private int balance;
 	
 	// the id of the account
-	int id;
+	private String id;
 
-	public Account(int id, int status) {
+	public Account(String id, int balance) {
 		this.id = id;
-		this.balance = status;
+		this.balance = balance;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -30,17 +29,7 @@ public class Account {
 		return balance;
 	}
 
-	public void setBalance(int status) {
-		this.balance = status;
+	public void withdraw(int amount) {
+		this.balance -= amount;
 	}
-	
-	/**
-	 * Withdraws a sum of money from the account
-	 * @param sum
-	 */
-	public void withdraw(int sum) {
-		this.balance = balance - sum;
-	}
-	
-	
 }
