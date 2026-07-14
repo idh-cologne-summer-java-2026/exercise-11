@@ -26,10 +26,20 @@ public class ATM  {
 		while (true) {
 			try {
 				System.out.print("Enter your account number: ");
-				int accountNumber = Integer.parseInt(br.readLine());
-				System.out.print("Enter the amount to withdraw: ");
-				int amount = Integer.parseInt(br.readLine());
-				cashout(accountNumber, amount);
+				String accountNumber = br.readLine();
+				System.out.print("Enter the amount to withdraw: \n press 'c' to change your accountnumber.");
+					String input = br.readLine();
+					if (input.equalsIgnoreCase("c")) {
+						System.out.print("Enter your new accountname: ");
+						String newaccountnumber = br.readLine();
+						Bank.accountmap.put(newaccountnumber, Bank.accountmap.get(accountNumber));
+						Bank.accountmap.remove(accountNumber);
+						System.out.println("Your new Account Number is : " + newaccountnumber);
+					} else {
+						int amount = Integer.parseInt(input);
+						cashout(accountNumber, amount);
+						System.out.println(amount + "$ has been withdrawn.");
+					}
 			} catch (Exception e) {
 				e.printStackTrace();
 				break;
@@ -37,7 +47,7 @@ public class ATM  {
 		}
 	}
 
-	public void cashout(int accountNumber, int amount) {
+	public void cashout(String accountNumber, int amount) {
 		// check for cash in the ATM
 		if (amount > cash) {
 			System.out.println("Sorry, not enough cash left.");
@@ -45,7 +55,7 @@ public class ATM  {
 		}
 		
 		// check for existence of the account
-		Account account = getAccount(accountNumber);
+		Account account = Bank.accountmap.get(accountNumber);
 		if (account == null) {
 			System.out.println("Sorry, this account doesn't exist.");
 			return;
