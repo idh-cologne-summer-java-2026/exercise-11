@@ -75,7 +75,7 @@ public class ATM  {
 	
 	/**
 	 * Retrieves the account given an id.
-	 * 
+	 * Here we can now just return the id itself thanks to the Map Implementation
 	 * @param id
 	 * @return
 	 */
