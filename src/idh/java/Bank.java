@@ -24,7 +24,6 @@ public class Bank implements Iterable<Account> {
 	}
 	
 	public Account getAccount(int number) {
-		// TODO: Implement
 		return uAc.get(number); //get Value of the corresponding key
 	}
 
