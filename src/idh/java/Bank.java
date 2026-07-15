@@ -9,7 +9,7 @@ public class Bank implements Iterable<Account> {
 	Account[] accounts = new Account[5];
 	HashMap<Integer, Account> uAc = new HashMap<>(); //Map containing Accounts and Integer IDs as Key
 
-	public Bank() {
+	public Bank() { //ausbessern --> Array muss weg
 		// create accounts with varying balances
 		Random random = new Random();
 		for (int i = 0; i < accounts.length; i++) {
